@@ -3,7 +3,7 @@ package firstDecision;
 public class MySingleton {
     private static MySingleton mySingleton;
 
-    private MySingleton(){}
+    private MySingleton() {}
 
     public static MySingleton getMySingleton() {
         if(mySingleton == null) {
