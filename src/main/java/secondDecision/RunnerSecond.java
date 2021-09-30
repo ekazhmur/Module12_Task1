@@ -4,7 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.net.URLClassLoader;
 
-public class ReloadSingleton {
+public class RunnerSecond {
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
 
         final Class<?> original = Singleton.class;
