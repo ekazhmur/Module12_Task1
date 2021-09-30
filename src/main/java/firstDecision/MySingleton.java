@@ -1,3 +1,5 @@
+package firstDecision;
+
 public class MySingleton {
     private static MySingleton mySingleton;
 
