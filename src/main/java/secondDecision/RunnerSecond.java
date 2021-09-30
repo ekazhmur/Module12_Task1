@@ -1,3 +1,7 @@
+/*
+Сделать так, чтобы можно было иметь два экземпляра singletone объекта в Runtime.
+ */
+
 package secondDecision;
 
 import java.lang.reflect.InvocationTargetException;
