@@ -4,9 +4,6 @@
 
 package firstDecision;
 
-import firstDecision.MySingleton;
-import firstDecision.MySingletonClassLoader;
-
 import java.lang.reflect.Field;
 
 public class Runner {
@@ -14,13 +11,10 @@ public class Runner {
 
         MySingleton mySingleton_1 = MySingleton.getMySingleton();
 
-        Class clazz = new MySingletonClassLoader().loadClass("firstDecision.MySingleton");
+        Class clazz = MySingleton.class;
         Field field = clazz.getDeclaredField("mySingleton");
         field.setAccessible(true);
         field.set(mySingleton_1,null);
-
-        MySingletonClassLoader mySingletonClassLoader = new MySingletonClassLoader();
-        mySingletonClassLoader.loadMySingletonClass();
 
         MySingleton mySingleton_2 = MySingleton.getMySingleton();
 
