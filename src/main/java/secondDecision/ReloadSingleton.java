@@ -10,7 +10,7 @@ public class ReloadSingleton {
         final Class<?> original = Singleton.class;
         URL loc = original.getProtectionDomain().getCodeSource().getLocation();
         ClassLoader parent = original.getClassLoader().getParent();
-        Singleton firstSingleton = Singleton.getSingleton();
+        Object firstSingleton = Singleton.getSingleton();
 
         URLClassLoader cl = new URLClassLoader(new URL[]{loc}, parent);
         Class<?> duplicate = cl.loadClass(original.getName());
