@@ -10,26 +10,17 @@ public class ReloadSingleton {
         final Class<?> original = Singleton.class;
         URL loc = original.getProtectionDomain().getCodeSource().getLocation();
         ClassLoader parent = original.getClassLoader().getParent();
-        Singleton first = Singleton.getSingleton();
+        Singleton firstSingleton = Singleton.getSingleton();
 
         URLClassLoader cl = new URLClassLoader(new URL[]{loc}, parent);
         Class<?> duplicate = cl.loadClass(original.getName());
-        Singleton second = Singleton.getSingleton();
+        Object secondSingleton = duplicate.getMethod("getSingleton").invoke(Singleton.class);
+
 
         System.out.println("original: " + original + " (" + original.getClassLoader() + ')');
         System.out.println("duplicate: " + duplicate + " (" + duplicate.getClassLoader() + ')');
-    }
-}
-class Singleton {
-    private static Singleton singleton;
-
-    private Singleton() {
-    }
-
-    public static Singleton getSingleton() {
-        if (singleton == null) {
-            singleton = new Singleton();
-        }
-        return singleton;
+        System.out.println("firstSingleton == secondSingleton: " + firstSingleton.equals(secondSingleton));
+        System.out.println("firstSingleton: " + firstSingleton);
+        System.out.println("secondSingleton " + secondSingleton);
     }
 }
